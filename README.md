@@ -1,31 +1,52 @@
-# nexus
+# nexus+
 
-... with Docker Compose and Serverless.
+[Nexus](https://nexusjs.org/) example with:
+* [Prisma](https://www.prisma.io/)
+* [Docker Compose](https://docs.docker.com/compose/)
+* [Serverless](https://www.serverless.com/)
+* [VS Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-## New
+## Development
+
+### Start dependencies
 
 ```
 $ docker-compose up
 ```
 
-or
+### One-time setup
+
+#### .env
+
+Create an `.env` file at the project root
+```
+# .env
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/myapp"
+```
+
+#### Prisma
 
 ```
-# Use VS Code Remote Container
-```
+# Init
+$ npx prisma init
 
-## Old
-Setup and start postgres
-```
-$ docker run --detach --publish 5432:5432 -e POSTGRES_PASSWORD=postgres --name nexus-tutorial-postgres postgres:10
+# Migrate
 $ npx prisma migrate dev --preview-feature
 ```
 
-start postgres
-```
-$ docker start nexus-tutorial-postgres
-```
+### Run development
+
+#### Via VS Code Remote - Container
+
+Requires [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ```
-npm run dev
+$ code .
+# `Open in Remote Window` by pressing the button in the bottom left of VS Code
+```
+
+#### Via Command-line
+
+```
+$ npm run dev
 ```
