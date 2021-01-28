@@ -1,0 +1,14 @@
+.env
+
+# Editor
+.vscode
+
+# Node
+node_modules
+
+# TS
+dist
+
+# Serverless
+.serverless
+.build
